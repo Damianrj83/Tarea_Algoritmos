@@ -9,7 +9,7 @@ import Controlador.Manejador;
 
 /**
  *
- * @author User
+ * @author Damian Rojas UCR
  */
 public class MainFrame extends javax.swing.JFrame {
 
