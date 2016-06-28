@@ -27,7 +27,7 @@ public class FrameIntercambio extends javax.swing.JFrame {
       FrameQuickSort frameQuicksort;
       FrameSeleccion frameSeleccion;
     
-   // Ordenamiento ordenamiento = new Ordenamiento(frameQuicksort, frameSeleccion, this, frameShellSort, frameMergeSort);
+    Ordenamiento ordenamiento = new Ordenamiento(frameQuicksort, frameSeleccion, this, frameShellSort, frameMergeSort);
     
     public FrameIntercambio() {
         initComponents();
@@ -60,12 +60,12 @@ public class FrameIntercambio extends javax.swing.JFrame {
                 index++; 
                 //Ordenamiento.inicializarVector(arregloTextField2);
             }
-//            else if(Ordenamiento.ordQuickSort(vectorNumeros, 0, vectorNumeros.length-1)==0)
-//           { 
-//                timer.cancel();
-//                timer.purge();
-//                return;
-//            }
+            else if(Ordenamiento.ordQuickSort(vectorNumeros, 0, vectorNumeros.length-1)==0)
+           { 
+                timer.cancel();
+                timer.purge();
+                return;
+            }
         }  
     };//Fin timeTasker
 

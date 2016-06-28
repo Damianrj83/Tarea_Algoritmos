@@ -29,7 +29,7 @@ public class FrameMergeSort extends javax.swing.JFrame {
      
       int posicion, index;
      int vectorNumeros[]= new int[10];
-   // Ordenamiento ordenamiento = new Ordenamiento(frameQuicksort, frameSeleccion, frameIntercambio, frameShellSort, this);
+    Ordenamiento ordenamiento = new Ordenamiento(frameQuicksort, frameSeleccion, frameIntercambio, frameShellSort, this);
     
     public FrameMergeSort() {
         initComponents();

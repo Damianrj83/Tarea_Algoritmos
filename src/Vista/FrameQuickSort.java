@@ -24,10 +24,10 @@ public class FrameQuickSort extends javax.swing.JFrame {
      */
     Timer timer = new Timer();
     
-//    FrameIntercambio frameIntercambio;
-//    FrameShellSort frameShellSort;
-//     FrameMergeSort frameMergeSort;
-//     FrameSeleccion frameSeleccion;
+    FrameIntercambio frameIntercambio;
+    FrameShellSort frameShellSort;
+     FrameMergeSort frameMergeSort;
+     FrameSeleccion frameSeleccion;
 
      
     int index = 0;
@@ -35,8 +35,8 @@ public class FrameQuickSort extends javax.swing.JFrame {
     String valor = null;
    
    int vectorNumeros[]= new int[10];
-    //Ordenamiento ordenamiento= new Ordenamiento(this, frameSeleccion, frameIntercambio, frameShellSort, frameMergeSort);
-    Ordenamiento ordenamiento = new Ordenamiento(this);
+    Ordenamiento ordenamiento= new Ordenamiento(this, frameSeleccion, frameIntercambio, frameShellSort, frameMergeSort);
+    //Ordenamiento ordenamiento = new Ordenamiento(this);
     public FrameQuickSort() {
          initComponents();
          

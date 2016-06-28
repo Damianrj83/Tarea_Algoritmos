@@ -28,7 +28,7 @@ public class FrameShellSort extends javax.swing.JFrame {
       FrameSeleccion frameSeleccion;
       FrameIntercambio frameIntercambio;
 
-   // Ordenamiento ordenamiento = new Ordenamiento(frameQuicksort, frameSeleccion, frameIntercambio, this, frameMergeSort);
+   Ordenamiento ordenamiento = new Ordenamiento(frameQuicksort, frameSeleccion, frameIntercambio, this, frameMergeSort);
     
     public FrameShellSort() {
         initComponents();
@@ -58,14 +58,14 @@ public class FrameShellSort extends javax.swing.JFrame {
                 //System.err.println("error"+ arregloLabel2[i]);
                 arregloTextField2[index].setText(vectorNumeros[index] + "");
                 index++; 
-               // Ordenamiento.inicializarVector(arregloTextField2);
+                Ordenamiento.inicializarVector(arregloTextField2);
             }
-//            else if(Ordenamiento.ordQuickSort(vectorNumeros, 0, vectorNumeros.length-1)==0)
-//           { 
-//                timer.cancel();
-//                timer.purge();
-//                return;
-//            }
+            else if(Ordenamiento.ordQuickSort(vectorNumeros, 0, vectorNumeros.length-1)==0)
+           { 
+                timer.cancel();
+                timer.purge();
+                return;
+            }
         }  
     };//Fin timeTasker
 

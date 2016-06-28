@@ -46,18 +46,18 @@ public class Ordenamiento {
 
 //    }
    static FrameQuickSort frameQuicksort;
-//   static FrameSeleccion frameSeleccion;
-//   static FrameIntercambio frameIntercambio;
-//   static FrameShellSort frameShellSort;
-//   static FrameMergeSort frameMergeSort;
+   static FrameSeleccion frameSeleccion;
+   static FrameIntercambio frameIntercambio;
+   static FrameShellSort frameShellSort;
+   static FrameMergeSort frameMergeSort;
    
 
-    public Ordenamiento(FrameQuickSort frameQuicksort) {
+    public Ordenamiento(FrameQuickSort frameQuicksort, FrameSeleccion frameSeleccion, FrameIntercambio frameIntercambio, FrameShellSort frameShellSort,FrameMergeSort frameMergeSort) {
         this.frameQuicksort = frameQuicksort;
-//        this.frameSeleccion = frameSeleccion;
-//        this.frameIntercambio = frameIntercambio;
-//        this.frameShellSort = frameShellSort;
-//        this.frameMergeSort = frameMergeSort;
+        this.frameSeleccion = frameSeleccion;
+        this.frameIntercambio = frameIntercambio;
+        this.frameShellSort = frameShellSort;
+        this.frameMergeSort = frameMergeSort;
         
     }//Fin constructor
     
