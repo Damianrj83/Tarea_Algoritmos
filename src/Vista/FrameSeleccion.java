@@ -6,7 +6,11 @@
 package Vista;
 
 import Modelo.Ordenamiento;
+import java.awt.Color;
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -14,9 +18,18 @@ import javax.swing.JOptionPane;
  */
 public class FrameSeleccion extends javax.swing.JFrame {
 
-    int posicion;
+    
+    Timer timer = new Timer(); 
+//    FrameQuickSort frameQuicksort;
+//    FrameIntercambio frameIntercambio;
+//     FrameShellSort frameShellSort;
+//     FrameMergeSort frameMergeSort;
+    int posicion, index;
      int vectorNumeros[]= new int[10];
-    Ordenamiento ordenamiento;
+     
+    
+     
+   // Ordenamiento ordenamiento = new Ordenamiento(frameQuicksort, this, frameIntercambio, frameShellSort, frameMergeSort);
     
     public FrameSeleccion() {
         initComponents();
@@ -34,10 +47,40 @@ public class FrameSeleccion extends javax.swing.JFrame {
               
         }//Fin for
         
-        
+         setLocationRelativeTo(null);
+        timer.scheduleAtFixedRate(timerTasker, 1000, 200);
     }//Fin constructor
 
-   
+    TimerTask timerTasker = new TimerTask() { //  timer que pausa el programa  y sub proceso en x cantidad de tiempo, por ende el programa se hace
+        //mas dinamico y se puede representar la animacion
+        @Override
+        public void run() {//metodo del timertasker
+            JTextField arregloTextField2[]= {jTextField1,jTextField2 ,jTextField3 ,jTextField4 ,jTextField5 ,jTextField6 ,jTextField7 ,jTextField8 ,jTextField9 ,jTextField10};
+            if (index < 10) {
+               // System.out.println("i: " + index + vectorNumeros[index]);
+                //System.err.println("error"+ arregloLabel2[i]);
+                arregloTextField2[index].setText(vectorNumeros[index] + "");
+                index++; 
+                //Ordenamiento.inicializarVector(arregloTextField2);
+            }
+//            else if(Ordenamiento.ordQuickSort(vectorNumeros, 0, vectorNumeros.length-1)==0)
+//           { 
+//                timer.cancel();
+//                timer.purge();
+//                return;
+//            }
+        }  
+    };//Fin timeTasker
+    
+    public void setTextVector(int i, String text, Color color) {//da valores a los text del vector que corresponde al escribir
+       
+        JTextField arregloTextField[] = {jTextField1,jTextField2 ,jTextField3 ,jTextField4 ,jTextField5 ,jTextField6 ,jTextField7 ,jTextField8 ,jTextField9 ,jTextField10 };//vector
+        arregloTextField[i].setEditable(false);//una vez estando en esa posicion se pone el numero(text = numero)
+        arregloTextField[i].setBackground(color);
+         
+        arregloTextField[i].setText(text);
+        arregloTextField[i].setOpaque(true);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

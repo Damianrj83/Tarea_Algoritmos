@@ -24,26 +24,32 @@ public class FrameQuickSort extends javax.swing.JFrame {
      */
     Timer timer = new Timer();
     
+//    FrameIntercambio frameIntercambio;
+//    FrameShellSort frameShellSort;
+//     FrameMergeSort frameMergeSort;
+//     FrameSeleccion frameSeleccion;
+
+     
     int index = 0;
     int posicion = 0;
     String valor = null;
    
    int vectorNumeros[]= new int[10];
-    Ordenamiento ordenamiento= new Ordenamiento(this);
-    
+    //Ordenamiento ordenamiento= new Ordenamiento(this, frameSeleccion, frameIntercambio, frameShellSort, frameMergeSort);
+    Ordenamiento ordenamiento = new Ordenamiento(this);
     public FrameQuickSort() {
          initComponents();
          
         for(posicion=0; posicion<10; posicion++){
            
             
-              do{//Para evitar que el usuario digite 0
+              //do{//Para evitar que el usuario digite 0
               //vectorNumeros[posicion]=Integer.parseInt(JOptionPane.showInputDialog("Numero: "+ posicion));
             
               vectorNumeros[posicion]=Integer.parseInt(JOptionPane.showInputDialog("Digite un numero: "+ posicion));
                               System.out.println("hold");
 
-              }while(vectorNumeros[posicion] < -1);
+            //  }while(vectorNumeros[posicion] < -1);
               
         }//Fin for
         

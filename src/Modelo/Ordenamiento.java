@@ -5,7 +5,7 @@
  */
 package Modelo;
 
-import Vista.FrameQuickSort;
+import Vista.*;
 import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,7 +24,7 @@ public class Ordenamiento {
     static JTextField[] vectorTextField;
 //    public static void main(String[] args) {
 //        
-//        //int j[] ={8,6,4,2};
+//        int j[] ={8,6,4,2};
 //       //int j[]={8,6,4,2,1,6};
 //        //int j[]={50,20,40,80,30,20};
 //        int j[]={79,21,15,99,88,65,75,85,76,46,84,24};
@@ -43,24 +43,37 @@ public class Ordenamiento {
 //       for(int i=0;i<j.length;i++)
 //            System.out.print("  " +j[i]);
 //        System.out.println("");
-//        // TODO code application logic here
+
 //    }
    static FrameQuickSort frameQuicksort;
+//   static FrameSeleccion frameSeleccion;
+//   static FrameIntercambio frameIntercambio;
+//   static FrameShellSort frameShellSort;
+//   static FrameMergeSort frameMergeSort;
+   
 
     public Ordenamiento(FrameQuickSort frameQuicksort) {
         this.frameQuicksort = frameQuicksort;
+//        this.frameSeleccion = frameSeleccion;
+//        this.frameIntercambio = frameIntercambio;
+//        this.frameShellSort = frameShellSort;
+//        this.frameMergeSort = frameMergeSort;
+        
     }//Fin constructor
     
     
     public static void inicializarVector(JTextField [] vectorTextField) {
         Ordenamiento.vectorTextField = vectorTextField;
         
+        
     }
     
     
     public static void intercambiar(int [] a,int i,int j){
         int aux=a[i];
-        a[i]=a[j];
+        a[i]=a[j];//
+       // frameSeleccion.setTextVector(i, a[j]+"", Color.yellow);
+        //frameSeleccion.setTextVector(j, a[i]+"", Color.blue);
         a[j]=aux;
     }
     
