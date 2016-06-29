@@ -23,12 +23,12 @@ public class FrameShellSort extends javax.swing.JFrame {
      int vectorNumeros[]= new int[10];
      Timer timer = new Timer();
       
-      FrameMergeSort frameMergeSort;
+      
       FrameQuickSort frameQuicksort;
       FrameSeleccion frameSeleccion;
       FrameIntercambio frameIntercambio;
 
-   Ordenamiento ordenamiento = new Ordenamiento(frameQuicksort, frameSeleccion, frameIntercambio, this, frameMergeSort);
+   Ordenamiento ordenamiento = new Ordenamiento(frameQuicksort, frameSeleccion, frameIntercambio, this);
     
     public FrameShellSort() {
         initComponents();
@@ -36,16 +36,17 @@ public class FrameShellSort extends javax.swing.JFrame {
          for(posicion=0; posicion<10; posicion++){
            
             
-              do{//Para evitar que el usuario digite 0
+              //do{//Para evitar que el usuario digite 0
               //vectorNumeros[posicion]=Integer.parseInt(JOptionPane.showInputDialog("Numero: "+ posicion));
             
               vectorNumeros[posicion]=Integer.parseInt(JOptionPane.showInputDialog("Digite un numero: "+ posicion));
                               System.out.println("entro a do-while");
 
-              }while(vectorNumeros[posicion] < 0);
+             // }while(vectorNumeros[posicion] < 0);
               
         }//Fin for
-        
+        setLocationRelativeTo(null);
+        timer.scheduleAtFixedRate(timerTasker, 1000, 200);
     }//Fin constructor
     
     TimerTask timerTasker = new TimerTask() { //  timer que pausa el programa  y sub proceso en x cantidad de tiempo, por ende el programa se hace
@@ -54,13 +55,12 @@ public class FrameShellSort extends javax.swing.JFrame {
         public void run() {//metodo del timertasker
             JTextField arregloTextField2[]= {jTextField1,jTextField2 ,jTextField3 ,jTextField4 ,jTextField5 ,jTextField6 ,jTextField7 ,jTextField8 ,jTextField9 ,jTextField10};
             if (index < 10) {
-               // System.out.println("i: " + index + vectorNumeros[index]);
-                //System.err.println("error"+ arregloLabel2[i]);
+               
                 arregloTextField2[index].setText(vectorNumeros[index] + "");
                 index++; 
                 Ordenamiento.inicializarVector(arregloTextField2);
             }
-            else if(Ordenamiento.ordQuickSort(vectorNumeros, 0, vectorNumeros.length-1)==0)
+            else if(Ordenamiento.ordShell(vectorNumeros)==0)
            { 
                 timer.cancel();
                 timer.purge();
@@ -70,13 +70,13 @@ public class FrameShellSort extends javax.swing.JFrame {
     };//Fin timeTasker
 
     
-    public void setTextVector(int i, String text, Color color) {//da valoresa los label del vector que corresponde al escriba
+    public void setTextVector(int i, String text, Color color) {//da valores a los JTextField del vector que corresponde 
        
         JTextField arregloTextField[] = {jTextField1,jTextField2 ,jTextField3 ,jTextField4 ,jTextField5 ,jTextField6 ,jTextField7 ,jTextField8 ,jTextField9 ,jTextField10 };//vector
-        //arregloTextField[].setEditable(false);
+        arregloTextField[i].setEditable(false);
         arregloTextField[i].setBackground(color);
          
-        arregloTextField[i].setText(text);
+        arregloTextField[i].setText(text);//pone el valor del numero en el vector
         arregloTextField[i].setOpaque(true);
     }
 

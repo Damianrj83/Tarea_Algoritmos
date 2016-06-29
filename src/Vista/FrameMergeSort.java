@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Modelo.MergeSort;
 import Modelo.Ordenamiento;
 import java.awt.Color;
 import java.util.Timer;
@@ -17,19 +18,16 @@ import javax.swing.JTextField;
  * @author User
  */
 public class FrameMergeSort extends javax.swing.JFrame {
+    
+    MergeSort mergeSort = new MergeSort(this);
      Timer timer = new Timer();
      
      
-      FrameQuickSort frameQuicksort;
-      FrameSeleccion frameSeleccion;
-      FrameIntercambio frameIntercambio;
-      FrameShellSort frameShellSort;
       
-    
      
       int posicion, index;
      int vectorNumeros[]= new int[10];
-    Ordenamiento ordenamiento = new Ordenamiento(frameQuicksort, frameSeleccion, frameIntercambio, frameShellSort, this);
+    
     
     public FrameMergeSort() {
         initComponents();
@@ -56,29 +54,28 @@ public class FrameMergeSort extends javax.swing.JFrame {
         public void run() {//metodo del timertasker
             JTextField arregloTextField2[]= {jTextField1,jTextField2 ,jTextField3 ,jTextField4 ,jTextField5 ,jTextField6 ,jTextField7 ,jTextField8 ,jTextField9 ,jTextField10};
             if (index < 10) {
-               // System.out.println("i: " + index + vectorNumeros[index]);
-                //System.err.println("error"+ arregloLabel2[i]);
+              
                 arregloTextField2[index].setText(vectorNumeros[index] + "");
                 index++; 
-               // Ordenamiento.inicializarVector(arregloTextField2);
+                MergeSort.inicializarVector(arregloTextField2);
             }
-//            else if(Ordenamiento.ordQuickSort(vectorNumeros, 0, vectorNumeros.length-1)==0)
-//           { 
-//                timer.cancel();
-//                timer.purge();
-//                return;
-//            }
+            else if(mergeSort.mergeSort(vectorNumeros)==0)
+           { 
+                timer.cancel();
+                timer.purge();
+                return;
+            }
         }  
     };//Fin timeTasker
 
     
-    public void setTextVector(int i, String text, Color color) {//da valoresa los label del vector que corresponde al escriba
+    public void setTextVector(int i, String text, Color color) {//da valores a los textField del vector que corresponde al escriba
        
         JTextField arregloTextField[] = {jTextField1,jTextField2 ,jTextField3 ,jTextField4 ,jTextField5 ,jTextField6 ,jTextField7 ,jTextField8 ,jTextField9 ,jTextField10 };//vector
-        //arregloTextField[].setEditable(false);
-        arregloTextField[i].setBackground(color);
+        arregloTextField[i].setEditable(false);
+        arregloTextField[i].setBackground(color);//determina un color de la posicion del vector
          
-        arregloTextField[i].setText(text);
+        arregloTextField[i].setText(text);//le da el valor de numero al vector
         arregloTextField[i].setOpaque(true);
     }
 

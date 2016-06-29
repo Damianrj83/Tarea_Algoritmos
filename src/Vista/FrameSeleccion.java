@@ -23,13 +23,13 @@ public class FrameSeleccion extends javax.swing.JFrame {
     FrameQuickSort frameQuicksort;
     FrameIntercambio frameIntercambio;
      FrameShellSort frameShellSort;
-     FrameMergeSort frameMergeSort;
+     //FrameMergeSort frameMergeSort;
     int posicion, index;
      int vectorNumeros[]= new int[10];
      
     
      
-    Ordenamiento ordenamiento = new Ordenamiento(frameQuicksort, this, frameIntercambio, frameShellSort, frameMergeSort);
+    Ordenamiento ordenamiento = new Ordenamiento(frameQuicksort, this, frameIntercambio, frameShellSort);
     
     public FrameSeleccion() {
         initComponents();
@@ -63,7 +63,7 @@ public class FrameSeleccion extends javax.swing.JFrame {
                 index++; 
                 Ordenamiento.inicializarVector(arregloTextField2);
             }
-            else if(Ordenamiento.ordQuickSort(vectorNumeros, 0, vectorNumeros.length-1)==0)
+            else if(Ordenamiento.ordSeleccion(vectorNumeros)==0)
            { 
                 timer.cancel();
                 timer.purge();

@@ -49,51 +49,67 @@ public class Ordenamiento {
    static FrameSeleccion frameSeleccion;
    static FrameIntercambio frameIntercambio;
    static FrameShellSort frameShellSort;
-   static FrameMergeSort frameMergeSort;
+  // static FrameMergeSort frameMergeSort;
    
 
-    public Ordenamiento(FrameQuickSort frameQuicksort, FrameSeleccion frameSeleccion, FrameIntercambio frameIntercambio, FrameShellSort frameShellSort,FrameMergeSort frameMergeSort) {
+    public Ordenamiento(FrameQuickSort frameQuicksort, FrameSeleccion frameSeleccion, FrameIntercambio frameIntercambio, FrameShellSort frameShellSort) {
         this.frameQuicksort = frameQuicksort;
         this.frameSeleccion = frameSeleccion;
         this.frameIntercambio = frameIntercambio;
         this.frameShellSort = frameShellSort;
-        this.frameMergeSort = frameMergeSort;
+       // this.frameMergeSort = frameMergeSort;
         
     }//Fin constructor
     
     
-    public static void inicializarVector(JTextField [] vectorTextField) {
+    public static void inicializarVector(JTextField [] vectorTextField) {//Metodo para incializar vector de tipo JtextField
         Ordenamiento.vectorTextField = vectorTextField;
         
         
     }
     
     
-    public static void intercambiar(int [] a,int i,int j){
-        int aux=a[i];
-        a[i]=a[j];//
-       // frameSeleccion.setTextVector(i, a[j]+"", Color.yellow);
-        //frameSeleccion.setTextVector(j, a[i]+"", Color.blue);
-        a[j]=aux;
+    public static int intercambiar(int [] a,int i,int j){
+       
+            int aux=a[i];
+            a[i]=a[j];//
+           // frameSeleccion.setTextVector(i, a[j]+"", Color.yellow);
+            //frameSeleccion.setTextVector(j, a[i]+"", Color.blue);
+            
+            a[j]=aux;
+            
+     
+        return 0;
     }
     
-    public static void ordIntercambio(int a[]){//ordenacion por intercambio
+    public static int ordIntercambio(int a[]){//ordenacion por intercambio
         int i , j;
         for(i=0; i<a.length; i++){//se coloca en la posicion 0
             for(j=i+1;j<a.length;j++){//se coloca en la posicion 1
-                if(a[i]>a[j]){//compara la posicion 0 con la 1(Si la posicion  1 es menor que la 0) entra
+                if(a[i]>a[j]){try {
+                    //compara la posicion 0 con la 1(Si la posicion  1 es menor que la 0) entra
                     intercambiar(a, i, j);//hace el cambio de la 1 con la 0
+                    frameIntercambio.setTextVector(i, a[j]+"", Color.yellow);
+                    frameIntercambio.setTextVector(j, a[i]+"", Color.cyan);
+                    //frameIntercambio.setTextVector(a, a[i]+"", Color.cyan);
+                    Thread.sleep(2000);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Ordenamiento.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
                 }
             }
         }
+        return 0;
     }
     
     
     
-    public static void ordSeleccion(int a[]){
+    public static int ordSeleccion(int a[]){
         int indiceMenor ,i , j ,n;
         n=a.length;//tamanio
-        for(i=0;i<n-1;i++){//i hasta el tamanio - 1 primer for
+        for(i=0;i<n-1;i++){try {
+            //i hasta el tamanio - 1 primer for
             //comienza la exploracion indice i
             indiceMenor =i;//el indice menor es i
             //
@@ -106,8 +122,16 @@ public class Ordenamiento {
             if(i!=indiceMenor)
                 
                 
-                intercambiar(a, i, indiceMenor);
+             intercambiar(a, i, indiceMenor);
+            frameSeleccion.setTextVector(i, a[indiceMenor]+"", Color.yellow);
+            frameSeleccion.setTextVector(j, a[indiceMenor]+"", Color.cyan);
+            Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Ordenamiento.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
+        return 0;
     }
     //interruptor es 0 para cuando no hubo cambio sale del metodo y no realiza las pasadas si fuera necesario
    public static void ordBurbuja(int a[]){
@@ -129,7 +153,7 @@ public class Ordenamiento {
             }
    } 
    
-   public static void ordShell(int a[]){
+   public static int ordShell(int a[]){
        int intervalo,i,j,k;
        int n = a.length;
        intervalo= n/2;
@@ -142,16 +166,28 @@ public class Ordenamiento {
                             j=-1;
                         
                         else{
-                            int temp;
-                            temp=a[j];
-                            a[j]=a[k];
-                            a[k]=temp;
-                            j-=intervalo;
+                            try {
+                                int temp;
+                                temp=a[j];
+                                
+                                a[j]=a[k];
+                                frameShellSort.setTextVector(j, a[k]+"", Color.yellow);
+                                frameShellSort.setTextVector(k, a[j]+"", Color.cyan);
+                                Thread.sleep(2000);
+                                a[k]=temp;
+                                frameShellSort.setTextVector(temp, a[k]+"", Color.yellow);
+                                frameShellSort.setTextVector(k, temp+"", Color.yellow);
+                                 Thread.sleep(2000); 
+                                j-=intervalo;
+                            } catch (InterruptedException ex) {
+                                Logger.getLogger(Ordenamiento.class.getName()).log(Level.SEVERE, null, ex);
+                            }
                         }
                     }
                }
             intervalo = intervalo / 2;
        }
+       return 0;
    }//ord
    
    

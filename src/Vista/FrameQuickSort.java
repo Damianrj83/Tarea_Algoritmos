@@ -26,7 +26,7 @@ public class FrameQuickSort extends javax.swing.JFrame {
     
     FrameIntercambio frameIntercambio;
     FrameShellSort frameShellSort;
-     FrameMergeSort frameMergeSort;
+     //FrameMergeSort frameMergeSort;
      FrameSeleccion frameSeleccion;
 
      
@@ -35,7 +35,7 @@ public class FrameQuickSort extends javax.swing.JFrame {
     String valor = null;
    
    int vectorNumeros[]= new int[10];
-    Ordenamiento ordenamiento= new Ordenamiento(this, frameSeleccion, frameIntercambio, frameShellSort, frameMergeSort);
+    Ordenamiento ordenamiento= new Ordenamiento(this, frameSeleccion, frameIntercambio, frameShellSort);
     //Ordenamiento ordenamiento = new Ordenamiento(this);
     public FrameQuickSort() {
          initComponents();
@@ -66,8 +66,8 @@ public class FrameQuickSort extends javax.swing.JFrame {
         public void run() {//metodo del timertasker
             JTextField arregloTextField2[]= {jTextField1,jTextField2 ,jTextField3 ,jTextField4 ,jTextField5 ,jTextField6 ,jTextField7 ,jTextField8 ,jTextField9 ,jTextField10};
             if (index < 10) {
-               // System.out.println("i: " + index + vectorNumeros[index]);
-                //System.err.println("error"+ arregloLabel2[i]);
+               
+                
                 arregloTextField2[index].setText(vectorNumeros[index] + "");
                 index++; 
                 Ordenamiento.inicializarVector(arregloTextField2);

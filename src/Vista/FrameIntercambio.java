@@ -20,6 +20,7 @@ public class FrameIntercambio extends javax.swing.JFrame {
 
       int posicion, index;
      int vectorNumeros[]= new int[10];
+     
      Timer timer = new Timer();
      
       FrameShellSort frameShellSort;
@@ -27,7 +28,7 @@ public class FrameIntercambio extends javax.swing.JFrame {
       FrameQuickSort frameQuicksort;
       FrameSeleccion frameSeleccion;
     
-    Ordenamiento ordenamiento = new Ordenamiento(frameQuicksort, frameSeleccion, this, frameShellSort, frameMergeSort);
+    Ordenamiento ordenamiento = new Ordenamiento(frameQuicksort, frameSeleccion, this, frameShellSort);
     
     public FrameIntercambio() {
         initComponents();
@@ -35,18 +36,18 @@ public class FrameIntercambio extends javax.swing.JFrame {
          for(posicion=0; posicion<10; posicion++){
            
             
-              do{//Para evitar que el usuario digite 0
+              //do{//Para evitar que el usuario digite 0
               //vectorNumeros[posicion]=Integer.parseInt(JOptionPane.showInputDialog("Numero: "+ posicion));
             
               vectorNumeros[posicion]=Integer.parseInt(JOptionPane.showInputDialog("Digite un numero: "+ posicion));
                               System.out.println("entro a do-while");
 
-              }while(vectorNumeros[posicion] < 0);
+             // }while(vectorNumeros[posicion] < 0);
               
         }//Fin for
         setLocationRelativeTo(null);
-        timer.scheduleAtFixedRate(timerTasker, 1000, 200);
-    }///
+        timer.scheduleAtFixedRate(timerTasker, 1000, 200);//un valor indica cuantos milisegundos va a durar en iniciar la primera
+    }///Fin constructor                                   //tarea y el otro valor indica cuanto se va a durar entre cada tarea
     
      TimerTask timerTasker = new TimerTask() { //  timer que pausa el programa  y sub proceso en x cantidad de tiempo, por ende el programa se hace
         //mas dinamico y se puede representar la animacion
@@ -58,9 +59,9 @@ public class FrameIntercambio extends javax.swing.JFrame {
                 //System.err.println("error"+ arregloLabel2[i]);
                 arregloTextField2[index].setText(vectorNumeros[index] + "");
                 index++; 
-                //Ordenamiento.inicializarVector(arregloTextField2);
+                Ordenamiento.inicializarVector(arregloTextField2);
             }
-            else if(Ordenamiento.ordQuickSort(vectorNumeros, 0, vectorNumeros.length-1)==0)
+           else if(Ordenamiento.ordIntercambio(vectorNumeros)==0)
            { 
                 timer.cancel();
                 timer.purge();
@@ -70,15 +71,15 @@ public class FrameIntercambio extends javax.swing.JFrame {
     };//Fin timeTasker
 
     
-    public void setTextVector(int i, String text, Color color) {//da valoresa los label del vector que corresponde al escriba
+    public void setTextVector(int i, String text, Color color) {//da valores a los textfield del vector que corresponde 
        
         JTextField arregloTextField[] = {jTextField1,jTextField2 ,jTextField3 ,jTextField4 ,jTextField5 ,jTextField6 ,jTextField7 ,jTextField8 ,jTextField9 ,jTextField10 };//vector
-        //arregloTextField[].setEditable(false);
+        arregloTextField[i].setEditable(false);
         arregloTextField[i].setBackground(color);
          
         arregloTextField[i].setText(text);
         arregloTextField[i].setOpaque(true);
-    }
+    }//Fin metodo setTextVector
 
     /**
      * This method is called from within the constructor to initialize the form.
