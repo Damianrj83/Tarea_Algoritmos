@@ -169,11 +169,12 @@ public class Ordenamiento {
                             try {
                                 int temp;
                                 temp=a[j];
+                                frameShellSort.setTextVector(temp, a[j]+"", Color.cyan);
                                 
                                 a[j]=a[k];
                                 frameShellSort.setTextVector(j, a[k]+"", Color.yellow);
                                 frameShellSort.setTextVector(k, a[j]+"", Color.cyan);
-                                Thread.sleep(2000);
+                                Thread.sleep(2000);//pausa cada tarea durante 2 segundos. Este metodo significa los mismo para los demas
                                 a[k]=temp;
                                 frameShellSort.setTextVector(temp, a[k]+"", Color.yellow);
                                 frameShellSort.setTextVector(k, temp+"", Color.yellow);

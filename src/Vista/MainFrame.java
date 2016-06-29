@@ -18,7 +18,7 @@ public class MainFrame extends javax.swing.JFrame {
         initComponents();
         this.manejador = new Manejador();
         this.seleccion.addActionListener(manejador);
-        this.intercambio.addActionListener(manejador);
+        this.intercambio.addActionListener(manejador);//pone a escuhar al manejador para luego realizar una determinada accion.
         this.quickSort.addActionListener(manejador);
         this.shellSort.addActionListener(manejador);
         this.mergeSort.addActionListener(manejador);

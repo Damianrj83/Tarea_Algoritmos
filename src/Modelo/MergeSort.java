@@ -92,8 +92,8 @@ public class MergeSort {
             } else {
                 try {
                     array[k] = tempMergArr[j];
-                    frameMergeSort.setTextVector(k, tempMergArr[j]+"", Color.yellow);
-                    frameMergeSort.setTextVector(j, array[k]+"", Color.blue);
+                    frameMergeSort.setTextVector(k, tempMergArr[j]+"", Color.yellow);//cambio
+                    frameMergeSort.setTextVector(j, array[k]+"", Color.blue);//cambio
                     Thread.sleep(2000);
                     j++;
                 } catch (InterruptedException ex) {

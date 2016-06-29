@@ -41,7 +41,7 @@ public class Manejador implements  ActionListener{
        if(e.getActionCommand().equals("QuickSort")){
        
         frameQuicksort = new FrameQuickSort();
-            frameQuicksort.show(true);
+            frameQuicksort.show(true);//mostra dicha ventana, los mismo para los demas metodos
        }
         if(e.getActionCommand().equals("ShellSort")){
        
